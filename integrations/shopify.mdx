@@ -1,0 +1,36 @@
+---
+title: "Shopify"
+description: "Understand product sync timing, inventory availability, and missing products in the flow builder."
+keywords: ["Shopify", "integration", "product sync", "inventory", "flow picker"]
+---
+
+Connect Shopify to use your store's products in Moshi sales flows.
+
+## Product and inventory sync
+
+Moshi starts importing your active Shopify products when you connect your store.
+After that, Moshi schedules product and inventory syncs every six hours.
+New products and inventory changes wait for the next sync, plus processing time.
+Shopify product notifications do not trigger an immediate catalog update.
+
+After a sync completes, reload the flow builder to load the updated catalog.
+Reloading the builder does not start a Shopify sync.
+
+## Product availability
+
+A product must be visible to Moshi before you can select it for a flow.
+If the product has variants, at least one variant must also be visible and available.
+Draft, archived, deleted, and disconnected-store products are unavailable through the active Shopify catalog.
+
+Zero inventory does not always prevent a sale.
+Moshi treats a variant as sellable when it has positive inventory or Shopify allows continued sales when out of stock.
+
+## A synced product is missing from the flow picker
+
+The flow builder currently loads only the first 100 products, ordered by sales count.
+Search and `Show more` use that loaded list.
+They do not load the rest of your catalog.
+
+If your store has more than 100 products, a new product can sync successfully and still be absent from the flow picker.
+Waiting for another sync or reloading the builder does not remove this limit.
+Contact the Moshi team with the product name and Shopify product URL if this limit blocks your flow.

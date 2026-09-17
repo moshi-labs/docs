@@ -1,55 +1,74 @@
-# Mintlify Starter Kit
+# Moshi documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+This repository contains the Mintlify source for `docs.moshi.ai`.
+Make documentation changes here and commit them to GitHub.
+The site configuration is `docs.json` at the repository root.
+The default branch is `master`.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Pages and files
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+| Path | Purpose |
+| --- | --- |
+| `integrations/shopify.mdx` | Shopify sync timing, inventory availability, and the flow picker's current catalog limit. |
+| `index.mdx` | Introduction page. This page still contains starter content. |
+| `quickstart.mdx` | Quickstart page. This page still contains starter content. |
+| `docs.json` | Site navigation, branding, and links. The branding still contains starter settings. |
+| `.mintignore` | Files that Mintlify excludes from the site. |
+| `AGENTS.md` | Instructions for agents that edit this repository. |
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+## Edit documentation
 
-## AI-assisted writing
+1. Create a branch from the latest `master`.
+2. Edit the relevant `.mdx` page.
+3. Add new pages to `docs.json` navigation without the `.mdx` extension.
+4. Run the checks below and review the diff.
+5. Push the branch and open a pull request against `master`.
+6. Merge the pull request after review and validation.
 
-Set up your AI coding tool to work with Mintlify:
+Include `title`, `description`, and `keywords` in each new page's YAML frontmatter.
+Use root-relative paths for internal links, such as `/integrations/shopify`.
+Keep merchant instructions separate from internal investigation records.
+Exclude merchant data, credentials, and private product identifiers.
+
+## Preview and validate
+
+Install Node.js and npm, then run these commands from the repository root:
 
 ```bash
-npx skills add https://mintlify.com/docs
+npx mint dev
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+Open the local URL printed by Mintlify to preview the site.
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
+Before merging, validate the site and its internal links:
 
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
+```bash
+npx mint validate
+npx mint broken-links
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+## Publish to docs.moshi.ai
 
-```
-mint dev
-```
+Mintlify's GitHub connection must use these settings:
 
-View your local preview at `http://localhost:3000`.
+| Setting | Value |
+| --- | --- |
+| Repository | `moshi-labs/docs` |
+| Production branch | `master` |
+| Documentation directory | Repository root (`/`) |
+| Custom domain | `docs.moshi.ai` |
 
-## Publishing changes
+With this connection enabled, a push or merge to `master` starts a Mintlify deployment.
+A commit on a feature branch does not update the production site.
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+After merging, check the Mintlify deployment result and open the changed page on `docs.moshi.ai`.
+If the page does not update, check the repository, branch, and directory settings in the Mintlify dashboard.
+Also check the deployment log for build errors.
+GitHub stores the source; Mintlify controls deployment and site access.
 
-## Need help?
+## Maintain the Shopify page
 
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+Verify product behavior against `moshi-labs/moshi-api` and `moshi-labs/moshi-frontend` before changing the Shopify page.
+Check the sync schedule, product availability rules, and flow picker behavior.
+The documented 100-product picker limit describes a current bug.
+Update that section when the fix reaches production.
