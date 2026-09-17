@@ -9,7 +9,7 @@ The default branch is `master`.
 
 | Path | Purpose |
 | --- | --- |
-| `integrations/shopify.mdx` | Shopify sync timing, inventory availability, and the flow picker's current catalog limit. |
+| `integrations/shopify.mdx` | Shopify connection steps, permissions, sync timing, product visibility, and troubleshooting. |
 | `index.mdx` | Introduction page. This page still contains starter content. |
 | `quickstart.mdx` | Quickstart page. This page still contains starter content. |
 | `docs.json` | Site navigation, branding, and links. The branding still contains starter settings. |
