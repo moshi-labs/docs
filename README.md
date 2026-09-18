@@ -26,9 +26,8 @@ A merged pull request alone does not confirm publication.
 
 ## Files in this repository
 
-`integrations/shopify.mdx` contains the Shopify guide prepared here before verification of the publishing source.
-The published guide belongs in `moshi-workspace/external-docs/integrations/shopify.mdx`.
-Make future changes there to prevent copies from differing.
+The Shopify guide lives in [`moshi-workspace/external-docs/integrations/shopify.mdx`](https://github.com/moshi-labs/moshi-workspace/blob/master/external-docs/integrations/shopify.mdx).
+Make future Shopify changes there.
 
 `index.mdx`, `quickstart.mdx`, and `docs.json` contain starter content or settings.
 Do not connect this repository to the live site without a separate content migration.
