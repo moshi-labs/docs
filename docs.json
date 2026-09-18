@@ -16,12 +16,6 @@
           "index",
           "quickstart"
         ]
-      },
-      {
-        "group": "Integrations",
-        "pages": [
-          "integrations/shopify"
-        ]
       }
     ],
     "global": {
